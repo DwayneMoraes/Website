@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dwayne Portfolio</title>
+
+    <link rel="icon" href="logo/logodm.svg" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- TOP ANCHOR FOR LOGO -->
+    <div id="top"></div>
+
+    <!-- STICKY HEADER -->
+    <header class="site-header">
+        <div class="site-header__inner">
+
+            <!-- LOGO (floats & returns to top) -->
+            <a href="#top" class="logo">
+                <img src="logo/logodm.svg" alt="Dwayne Moraes Logo" />
+            </a>
+
+            <!-- NAVIGATION -->
+            <nav class="site-nav">
+                <a href="#work">WORK</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- LANDING NAME -->
+    <div class="landing-name">
+        <h1>Dwayne Moraes</h1>
+    </div>
+
+    <main class="site-main">
+
+        <!-- WORK SECTION -->
+        <section id="work" class="section section--border-top">
+            <h3 class="section__title section__title--work">Work</h3>
+
+            <div class="work-grid work-grid--stylized">
+
+                <!-- Moodboard 1 -->
+                <a href="moodboard.html" class="work-link">
+                    <div class="work-item work-item--left">
+                        <img class="work-media" src="img/moodboard.png">
+                        <div class="work-overlay">
+                            <h4 class="work-title">Art-74 artwork</h4>
+                            <span class="work-view">— view project —</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Animations (video in middle card) -->
+                <a href="animations.html" class="work-link">
+                    <div class="work-item work-item--center">
+                        <video class="work-media" autoplay muted loop playsinline>
+                            <source src="animations/rocket.mkv" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="work-overlay">
+                            <h4 class="work-title">Animations</h4>
+                            <span class="work-view">— view project —</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Moodboard 3 -->
+                <a href="photography.html" class="work-link">
+                    <div class="work-item work-item--right">
+                        <img class="work-media" src="photography/a.jpeg" >
+                        <div class="work-overlay">
+                            <h4 class="work-title">Photography</h4>
+                            <span class="work-view">— view project —</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+
+        <!-- RESUME -->
+        <section id="resume" class="section section--border-top resume-section">
+            <div class="resume-card">
+                <h3 class="section__title resume-title">Resume</h3>
+
+                <a href="myresume/Moraes_Dwayne_Resume.pdf"
+                   class="resume-btn"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Download My Resume
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section about-clean">
+    <h3 class="section__title">About</h3>
+
+    <div class="about-flex">
+
+        <!-- LEFT — Artwork -->
+        <div class="about-art">
+            <img src="about/Artwork of myself (Dwayne Moraes).png" alt="Artwork of Dwayne Moraes">
+        </div>
+
+        <!-- RIGHT — Text -->
+        <div class="about-text">
+            <p>
+                I’m a multidisciplinary digital artist who likes to work where storytelling,
+                design, and technology meet. My practice includes illustration, motion, 3D,
+                and interactive media, and I shift between them depending on what the idea calls for.
+            </p>
+
+            <p>
+                I’m drawn to bold visuals, thoughtful details, and finding ways to turn
+                abstract concepts into something people can connect with.
+            </p>
+
+            <p>
+                I work with clients, studios, and other artists on branding, animation,
+                and experimental digital projects. Clear communication, strong ideas,
+                and careful execution guide my process.
+            </p>
+
+            <p>
+                If you’d like to collaborate or talk about a project, I’m always open to a conversation.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section section--border-top section--narrow">
+            <h3 class="section__title">Contact</h3>
+
+            <div class="section__content">
+                <p>For collaborations or inquiries:</p>
+
+               <a href="contact.html" class="contact-btn">
+               <span>Say Hello</span>
+               </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Dwayne Moraes</p>
+    </footer>
+
+    <!-- p5 js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+
+    <!-- Your p5 sketch (if needed) -->
+    <script src="script.js"></script>
+
+    <!-- Auto-update footer year -->
+    <script>
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
