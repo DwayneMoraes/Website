@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photography — Dwayne Moraes</title>
+
+    <link rel="icon" href="logo/logodm.svg" />
+    <link rel="stylesheet" href="photography.css" />
+</head>
+
+<body>
+
+    <!-- TOP ANCHOR -->
+    <div id="top"></div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html#top" class="logo">
+                <img src="logo/logodm.svg" alt="Dwayne Moraes Logo" />
+            </a>
+
+            <nav class="site-nav">
+                <a href="index.html#work">WORK</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#contact">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+
+        <section class="section section--border-top photo-section">
+            <h1 class="photo-title">Photography</h1>
+
+            <div class="photo-grid">
+
+                <!-- Photo 1 -->
+                <div class="photo-item">
+                    <img src="Photography/c.jpeg" alt="Photography image 1">
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-item">
+                    <img src="Photography/b.jpeg" alt="Photography image 2">
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="photo-item">
+                    <img src="Photography/a.jpeg" alt="Photography image 3">
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="photo-item">
+                    <img src="Photography/6.png" alt="Photography image 4">
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Dwayne Moraes</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- p5 background -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects – Animations</title>
+
+    <link rel="icon" href="logo/logodm.svg DM.svg" />
+    <!-- use the main site CSS like index + art74 -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- page-specific styles so we don't worry about animation.css paths -->
+    <style>
+        .site-main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-lg);
+        }
+
+        .project-list {
+            padding-top: calc(var(--space-xl) + 1.5rem);
+            padding-bottom: var(--space-xl);
+        }
+
+        .project-title {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            margin-bottom: 3rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .project-list-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: #fafafaee;
+            border-radius: 16px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 18px 55px rgba(0,0,0,0.06);
+            padding: 1.75rem 1.9rem 2.1rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr);
+            gap: 1.75rem;
+        }
+
+        .project-image-wrap {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        /* key line: treat image + video the same */
+        .project-image-wrap img,
+        .project-image-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .project-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .project-name {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+        }
+
+        .project-subheading {
+            font-size: 0.85rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 0.4rem;
+        }
+
+        .project-text {
+            font-size: 0.96rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        @media (max-width: 900px) {
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-title {
+                font-size: 2.4rem;
+                letter-spacing: .12em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .project-text {
+                font-size: .95rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP ANCHOR -->
+    <div id="top"></div>
+
+    <!-- STICKY HEADER -->
+    <header class="site-header">
+        <div class="site-header__inner">
+
+            <!-- Logo back to home -->
+            <a href="index.html#top" class="logo">
+                <img src="logo/logodm.svg" alt="Dwayne Moraes Logo" />
+            </a>
+
+            <nav class="site-nav">
+                <a href="index.html#work">WORK</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#contact">CONTACT</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="site-main">
+
+        <section class="section section--border-top project-list">
+            <h1 class="project-title">PROJECTS</h1>
+
+            <div class="project-list-inner">
+
+                <!-- CARD 1 – SPACESHIP -->
+                <article class="project-card">
+                    <div class="project-image-wrap">
+                        <video controls muted playsinline>
+                            <source src="animations/Spaceship.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <div class="project-copy">
+                        <h2 class="project-name">Spaceship Animation</h2>
+        
+                        <h5 class="project-subheading">Artwork Description</h5>
+                        <p class="project-text">
+                            I created a TIE Fighter animation inspired by its iconic presence in Star Wars, but reimagined with a soft, drifting motion. The gentle looping movement gives the ship a dreamy, floating quality that ties in with the calm, atmospheric style used in my portfolio.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- CARD 2 – ROCKET -->
+                <article class="project-card">
+                    <div class="project-image-wrap">
+                        <video controls muted playsinline>
+                            <!-- leave this as .mkv if that's what you have -->
+                            <source src="animations/rocket.mkv" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <div class="project-copy">
+                        <h2 class="project-name">Rocket Animation</h2>
+                    
+                        <h5 class="project-subheading">Artwork Description</h5>
+                        <p class="project-text">
+                           I animated a small rocket using quick bursts of acceleration and smooth ease-outs to give the motion a punchy but playful feel. The timing and movement study focuses on capturing energy while keeping the overall animation light and fun.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Dwayne Moraes</p>
+    </footer>
+
+    <script>
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+
+    <!-- p5 background, same as other pages -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

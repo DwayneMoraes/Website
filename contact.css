@@ -1,0 +1,104 @@
+/* Contact page specific styles
+   Global header/nav/etc come from style.css */
+
+.contact-main {
+    /* push content below fixed header */
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-wrapper {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Title & subtitle */
+.contact-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.contact-email {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-email:hover {
+    text-decoration: underline;
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.contact-form label span {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem 0.9rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font: inherit;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+/* Submit button */
+.submit-btn {
+    margin-top: 1.5rem;
+    align-self: center;
+    padding: 0.8rem 2.5rem;
+    border-radius: 999px;
+    border: none;
+    background: #3b2dff;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    background: #2a1ce0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 650px) {
+    .contact-main {
+        padding-top: 9rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .contact-title {
+        font-size: 2.1rem;
+    }
+}

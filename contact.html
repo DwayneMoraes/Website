@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – Dwayne Moraes</title>
+
+    <!-- Global site styles (header, nav, typography, etc.) -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Contact-page specific tweaks -->
+    <link rel="stylesheet" href="contact.css" />
+
+    <link rel="icon" href="logo/logodm.svg">
+</head>
+
+<body>
+
+    <!-- TOP ANCHOR -->
+    <div id="top"></div>
+
+    <!-- SAME HEADER AS OTHER PAGES -->
+    <header class="site-header">
+        <div class="site-header__inner">
+
+            <!-- Logo back to home -->
+            <a href="index.html#top" class="logo">
+                <img src="logo/logodm.svg" alt="Dwayne Moraes Logo" />
+            </a>
+
+            <!-- Nav -->
+            <nav class="site-nav">
+                <a href="index.html#work">WORK</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#contact">CONTACT</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="site-main contact-main">
+
+        <div class="contact-wrapper">
+
+            <h1 class="contact-title">Like what you see?</h1>
+
+            <p class="contact-subtitle">
+                Let’s work together! Drop me a line at <br>
+                <a href="mailto:dwaynemoraes15@gmail.com" class="contact-email">
+                    dwaynemoraes15@gmail.com
+                </a>
+                <br>
+                or simply fill out the form below.
+            </p>
+
+            <form class="contact-form"
+                  action="https://formspree.io/f/movgnjkl"
+                  method="POST">
+
+                <label>
+                    Name <span>(required)</span>
+                    <input type="text" name="name" required>
+                </label>
+
+                <label>
+                    Email <span>(required)</span>
+                    <input type="email" name="email" required>
+                </label>
+
+                <label>
+                    Message <span>(required)</span>
+                    <textarea name="message" rows="6" required></textarea>
+                </label>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- p5 background -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
