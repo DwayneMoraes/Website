@@ -319,16 +319,6 @@ section, #top { scroll-margin-top: 11rem; }
     gap: 3rem;
     align-items: center;
 }
-@media (max-width: 850px) {
-    .about-box {
-        padding: 2rem;
-    }
-
-    .about-flex {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
 
 
 /* MOBILE — Stack vertically */
