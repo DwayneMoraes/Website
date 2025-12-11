@@ -320,7 +320,6 @@ section, #top { scroll-margin-top: 11rem; }
     align-items: center;
 }
 
-
 /* MOBILE — Stack vertically */
 @media (max-width: 850px) {
     .about-flex {
