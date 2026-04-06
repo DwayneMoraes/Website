@@ -1,3 +1,28 @@
+function scrollAboutIntoCenter() {
+  const about = document.getElementById("about");
+  if (about) {
+    about.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+  }
+}
+
+document.querySelectorAll('.site-nav a[href="#about"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollAboutIntoCenter();
+    history.pushState(null, "", "#about");
+  });
+});
+
+function initAboutHashCenter() {
+  if (window.location.hash === "#about") {
+    requestAnimationFrame(() => scrollAboutIntoCenter());
+  }
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAboutHashCenter);
+} else {
+  initAboutHashCenter();
+}
 
 let tris = [];
 

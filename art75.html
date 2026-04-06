@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art-75 artwork | Dwayne Moraes</title>
+
+    <link rel="icon" href="logo/logodm.svg" />
+    <link rel="stylesheet" href="animations.css" />
+</head>
+<body>
+
+    <div id="top"></div>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="index.html#top" class="logo">
+                <img src="logo/logodm.svg" alt="Dwayne Moraes Logo" />
+            </a>
+            <nav class="site-nav">
+                <a href="index.html#work">WORK</a>
+                <a href="index.html#about">ABOUT</a>
+                <a href="index.html#contact">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <section class="section section--border-top project-list">
+            <h1 class="project-title">Art-75 artwork</h1>
+
+            <div class="project-list-inner">
+                <article class="project-card">
+                    <div class="project-image-wrap">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="art75/Fieldtrip.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-copy">
+                        <h2 class="project-name">Field Trip</h2>
+
+                        <h5 class="project-subheading">Assignment</h5>
+                        <p class="project-text">
+                            I made a vlog that follows my real route: I started at home, filmed around the city, then went to ICA San José for <em>Data Trust</em>. I wrote about what I took away from the trip and what AI means to me in art and video.
+                        </p>
+
+                        <h5 class="project-subheading">Artwork statement</h5>
+                        <p class="project-text">
+                            <em>Field Trip</em> opens where I live, then moves with me through San José before I walk into the museum. I wanted the day to feel like one continuous thread, not only the gallery walls. Inside ICA I kept the edit light so my eye and pacing stay in front. Filming pushed me to slow down and notice small things: the street, the room, sound, what pulls me in. When I think about AI in my work, I care most about trust, how images get made, and who gets to shape the story. This piece is how I let those thoughts show up in something people can watch, not just read.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image-wrap">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="art75/Midterm.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-copy">
+                        <h2 class="project-name">Midterm</h2>
+
+                        <h5 class="project-subheading">Assignment</h5>
+                        <p class="project-text">
+                            For my Art 75 midterm I made a video between 30 seconds and 2 minutes long. The brief asked us to use at least two tools or techniques from class, with room to draw on ideas like the Kuleshov effect, After Effects, Soviet-style editing, deep listening, and other methods we had studied.
+                        </p>
+
+                        <h5 class="project-subheading">Artwork statement</h5>
+                        <p class="project-text">
+                            I was really stressed going into the midterm, and instead of hiding that, I decided to put those exact feelings into the video. <em>Midterm</em> became a place where pressure, overload, and nerves could show on screen honestly, through pacing, sound, and the way I cut the piece together. That choice felt more true to me than pretending I was calm.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image-wrap">
+                        <video controls muted playsinline preload="metadata">
+                            <source src="art75/Technology_Paradox.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-copy">
+                        <h2 class="project-name">Technology Paradox</h2>
+
+                        <h5 class="project-subheading">Assignment</h5>
+                        <p class="project-text">
+                            For this Art 75 project I made a video about the technology paradox: how the same tools that connect us, speed us up, or promise ease can also isolate us, overwhelm us, or change how we see ourselves. The piece was my response to that idea in moving image, using what we practiced in class around editing, sound, and rhythm.
+                        </p>
+
+                        <h5 class="project-subheading">Artwork statement</h5>
+                        <p class="project-text">
+                            With <em>Technology Paradox</em> I wanted the cut to feel a little uneven on purpose, like attention getting pulled in two directions at once. I used contrast between calm and noisy moments, and between screen life and real space, to show how tech can feel like a gift and a weight in the same week. If the viewer finishes the piece a little unsure whether to laugh or sigh, that is close to what I feel about the subject too.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Dwayne Moraes</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

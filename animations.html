@@ -46,20 +46,35 @@
             display: grid;
             grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.6fr);
             gap: 1.75rem;
+            align-items: stretch;
         }
 
         .project-image-wrap {
             overflow: hidden;
             border-radius: 12px;
+            align-self: stretch;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         /* key line: treat image + video the same */
         .project-image-wrap img,
         .project-image-wrap video {
             width: 100%;
+            flex: 1 1 auto;
+            min-height: 0;
+            height: 100%;
             display: block;
             border-radius: 12px;
             object-fit: cover;
+        }
+
+        @media (min-width: 901px) {
+            .project-image-wrap img,
+            .project-image-wrap video {
+                min-height: 16rem;
+            }
         }
 
         .project-copy {
@@ -145,7 +160,7 @@
                 <article class="project-card">
                     <div class="project-image-wrap">
                         <video controls muted playsinline>
-                            <source src="animations/Spaceship.mp4" type="video/mp4" />
+                            <source src="animation/Spaceship.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -164,8 +179,7 @@
                 <article class="project-card">
                     <div class="project-image-wrap">
                         <video controls muted playsinline>
-                            <!-- leave this as .mkv if that's what you have -->
-                            <source src="animations/rocket.mkv" type="video/mp4" />
+                            <source src="animation/rocket.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>

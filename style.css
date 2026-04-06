@@ -5,6 +5,14 @@
     --accent: #c22;
     --max-width: 1400px;
 
+    /* Match Work cards: shadow lift + media scale */
+    --work-radius: 18px;
+    --work-shadow-outer: 0 18px 45px rgba(0, 0, 0, 0.12);
+    --work-shadow-hover: 0 24px 55px rgba(0, 0, 0, 0.18);
+    --work-hover-scale: 1.04;
+    --work-ease-media: 0.45s ease;
+    --work-ease-shadow: 0.25s ease;
+
     --space-xs: .75rem;
     --space-sm: 1.5rem;
     --space-md: 2rem;
@@ -82,6 +90,13 @@ section, #top { scroll-margin-top: 11rem; }
     color: var(--text);
     text-decoration: none;
     position: relative;
+    transition:
+        transform var(--work-ease-shadow),
+        color var(--work-ease-shadow);
+}
+
+.site-nav a:hover {
+    transform: translateY(-3px);
 }
 
 .site-nav a::after {
@@ -92,7 +107,7 @@ section, #top { scroll-margin-top: 11rem; }
     position: absolute;
     bottom: -4px;
     left: 0;
-    transition: .3s ease;
+    transition: width 0.3s ease;
 }
 
 .site-nav a:hover::after { width: 100%; }
@@ -123,6 +138,16 @@ section, #top { scroll-margin-top: 11rem; }
         0px 6px 0px #989898,
         0px 7px 0px #8c8c8c,
         0px 8px 12px rgba(0,0,0,0.35);
+    transition: transform .25s ease, text-shadow .25s ease;
+}
+
+.landing-name h1:hover {
+    transform: translateY(-8px);
+    text-shadow:
+        0px 4px 0px #b8b8b8,
+        0px 7px 0px #a2a2a2,
+        0px 12px 20px rgba(0,0,0,0.45);
+    cursor: default;
 }
 
 @media (max-width: 650px) {
@@ -131,7 +156,6 @@ section, #top { scroll-margin-top: 11rem; }
         letter-spacing: .08em;
     }
 }
-
 /* ======================================= */
 /* MAIN */
 /* ======================================= */
@@ -151,6 +175,21 @@ section, #top { scroll-margin-top: 11rem; }
     margin-bottom: var(--space-lg);
 }
 
+#contact .section__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-lg);
+}
+
+#contact .section__content p {
+    margin: 0;
+    max-width: 32rem;
+    line-height: 1.6;
+    color: #333;
+}
+
 /* ======================================= */
 /* WORK GRID */
 /* ======================================= */
@@ -163,11 +202,27 @@ section, #top { scroll-margin-top: 11rem; }
     justify-items: center;
 }
 
+/* Fourth card: centered on row below three-up layout */
+@media (min-width: 901px) {
+    .work-link--row2 {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        max-width: 520px;
+    }
+}
+
 .work-link {
     display: block;
     width: 100%;
     text-decoration: none;
     color: inherit;
+    border-radius: var(--work-radius);
+}
+
+.work-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
 }
 
 /* FLOAT CARD ANIMATION */
@@ -181,10 +236,10 @@ section, #top { scroll-margin-top: 11rem; }
 .work-item {
     position: relative;
     overflow: hidden;
-    border-radius: 18px;
+    border-radius: var(--work-radius);
     background: #fafafa;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
-    transition: box-shadow .25s ease;
+    box-shadow: var(--work-shadow-outer);
+    transition: box-shadow var(--work-ease-shadow);
     width: 100%;
     max-width: 520px;
 
@@ -194,10 +249,15 @@ section, #top { scroll-margin-top: 11rem; }
     animation: floatSlow 8s ease-in-out infinite;
 }
 
+.work-item:hover {
+    box-shadow: var(--work-shadow-hover);
+}
+
 /* stagger delays */
 .work-item--left  { animation-delay: 0s; }
 .work-item--center { animation-delay: 1s; }
 .work-item--right { animation-delay: 2s; }
+.work-item--art75 { animation-delay: 3s; }
 
 /* MEDIA (IMAGE + VIDEO) */
 .work-media,
@@ -206,12 +266,12 @@ section, #top { scroll-margin-top: 11rem; }
     height: 100%;      /* fills the fixed-height card */
     object-fit: cover; /* avoids distortion */
     display: block;
-    transition: transform .45s ease;
+    transition: transform var(--work-ease-media);
 }
 
 .work-item:hover .work-media,
 .work-item:hover img {
-    transform: scale(1.04);
+    transform: scale(var(--work-hover-scale));
 }
 
 /* OVERLAY */
@@ -225,7 +285,7 @@ section, #top { scroll-margin-top: 11rem; }
     background: rgba(0,0,0,0.25);
     color: white;
     opacity: 0;
-    transition: .3s ease;
+    transition: opacity var(--work-ease-media);
 }
 
 .work-item:hover .work-overlay {
@@ -237,11 +297,17 @@ section, #top { scroll-margin-top: 11rem; }
     .work-item--center { max-width: 600px; margin-top: 0; }
     .work-item--left   { max-width: 540px; margin-top: 2rem; }
     .work-item--right  { max-width: 540px; margin-top: 4rem; }
+    .work-item--art75  { max-width: 600px; margin-top: 0; }
 }
 
 @media (max-width: 900px) {
     .work-grid {
         grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .work-link--row2 {
+        grid-column: auto;
+        max-width: none;
     }
 }
 
@@ -253,60 +319,125 @@ section, #top { scroll-margin-top: 11rem; }
 /* BUTTONS (Resume / Contact) */
 /* ======================================= */
 
-.resume-btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: #111;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    letter-spacing: .18em;
-    transition: .3s ease;
-}
-
-.resume-btn:hover {
-    background: #333;
-    transform: scale(1.05);
-}
-
+/* Shared pill CTA (resume download + Say Hello) */
+.resume-btn,
 .contact-btn {
+    position: relative;
     display: inline-flex;
-    padding: var(--space-sm) var(--space-xl);
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 1rem 2.35rem;
     border: 2px solid #111;
-    border-radius: 50px;
+    border-radius: 999px;
     text-transform: uppercase;
-    letter-spacing: .15em;
-    font-size: 1rem;
-    transition: .3s ease;
+    letter-spacing: 0.16em;
+    font-size: 0.95rem;
+    font-weight: 600;
     text-decoration: none;
     color: var(--text);
+    background: linear-gradient(180deg, #fafafa 0%, #ececec 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        var(--work-shadow-outer);
+    transition:
+        transform var(--work-ease-shadow),
+        box-shadow var(--work-ease-shadow),
+        background var(--work-ease-shadow),
+        color var(--work-ease-shadow),
+        border-color var(--work-ease-shadow);
 }
 
+.resume-btn::after,
+.contact-btn::after {
+    content: "→";
+    font-size: 1.1em;
+    font-weight: 500;
+    opacity: 0.75;
+    transition:
+        transform var(--work-ease-shadow),
+        opacity var(--work-ease-shadow);
+}
+
+.resume-btn:hover,
 .contact-btn:hover {
+    transform: translateY(-3px);
     background: #111;
     color: #fff;
+    border-color: #111;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        var(--work-shadow-hover);
+}
+
+.resume-btn:hover::after,
+.contact-btn:hover::after {
+    transform: translateX(6px);
+    opacity: 1;
+}
+
+.resume-btn:active,
+.contact-btn:active {
+    transform: translateY(-1px);
+}
+
+.resume-btn:focus-visible,
+.contact-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 /* ======================================= */
 /* ABOUT / FOOTER */
 /* ======================================= */
 
-/* ABOUT — Artwork + Text Side-by-Side Layout */
+/* ABOUT — left-aligned title + grid; minmax(0,…) + min-width:0 stop wide art from blowing out the grid */
+.about-clean {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.about-clean .section__title {
+    width: 100%;
+    max-width: 1100px;
+    text-align: left;
+}
+
 .about-flex {
     display: grid;
-    grid-template-columns: 1.1fr 1.4fr; /* nice balanced layout */
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
     gap: 3rem;
     align-items: center;
+    width: 100%;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 0;
+}
+
+.about-art,
+.about-text {
+    min-width: 0;
+}
+
+.about-art {
+    border-radius: var(--work-radius);
+    overflow: hidden;
+    box-shadow: var(--work-shadow-outer);
+    transition: box-shadow var(--work-ease-shadow);
+}
+
+.about-art:hover {
+    box-shadow: var(--work-shadow-hover);
 }
 
 .about-art img {
     width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 18px 55px rgba(0,0,0,0.08);
     display: block;
+    transition: transform var(--work-ease-media);
+}
+
+.about-art:hover img {
+    transform: scale(var(--work-hover-scale));
 }
 
 .about-text p {
@@ -334,3 +465,5 @@ section, #top { scroll-margin-top: 11rem; }
     padding: var(--space-lg);
     color: var(--muted);
 }
+
+
